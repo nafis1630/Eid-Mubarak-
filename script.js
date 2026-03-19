@@ -13,7 +13,8 @@ function startWish() {
 }
 
 function openGift() {
-  alert("🎉 Surprise! Eid Mubarak!");
+  alert("🎉 Eid Surprise!");
+  confetti();
 }
 
 // Fireworks
@@ -66,3 +67,23 @@ window.onload = function () {
       "Eid Mubarak, " + name + " 🌙✨";
   }
 };
+function confetti() {
+  for (let i = 0; i < 100; i++) {
+    let c = document.createElement("div");
+    c.style.position = "fixed";
+    c.style.width = "5px";
+    c.style.height = "5px";
+    c.style.background = "red";
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.top = "-10px";
+    document.body.appendChild(c);
+
+    let fall = setInterval(() => {
+      c.style.top = parseInt(c.style.top) + 5 + "px";
+      if (parseInt(c.style.top) > window.innerHeight) {
+        c.remove();
+        clearInterval(fall);
+      }
+    }, 30);
+  }
+}

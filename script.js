@@ -46,7 +46,7 @@ function animate() {
     p.y += p.dy;
     p.life--;
 
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = `hsl(${Math.random()*360},100%,50%)`;
     ctx.fillRect(p.x, p.y, 3, 3);
 
     if (p.life <= 0) particles.splice(i, 1);
